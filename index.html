@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enhanced Landing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sewing Machine Manuals & Troubleshooting – Find, Fix, Sew!</title>
-    <meta name="description" content="Find sewing machine manuals and expert troubleshooting guides. Step-by-step repair tips to fix your machine today!">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-answer.active {
+            max-height: 500px;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 font-sans antialiased">
     <!-- Header -->
@@ -30,6 +31,7 @@
                     <a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition duration-300">Testimonials</a>
                     <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300">About Us</a>
                     <a href="#faq" class="text-gray-600 hover:text-blue-600 transition duration-300">FAQ</a>
+                    <a href="blog.html" class="text-gray-600 hover:text-blue-600 transition duration-300">Blog</a>
                 </div>
                 <button class="mobile-menu-button md:hidden" aria-label="Toggle mobile menu">
                     <i class="fas fa-bars text-2xl"></i>
@@ -41,6 +43,7 @@
                 <a href="#testimonials" class="block py-2 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition duration-300">Testimonials</a>
                 <a href="#about" class="block py-2 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition duration-300">About Us</a>
                 <a href="#faq" class="block py-2 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition duration-300">FAQ</a>
+                <a href="blog.html" class="block py-2 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition duration-300">Blog</a>
             </div>
         </nav>
     </header>
@@ -194,58 +197,36 @@
             </h2>
             <div class="max-w-3xl mx-auto space-y-6">
                 <div class="border-b border-gray-200 pb-4 hover:bg-gray-50 transition duration-300 rounded-lg p-4">
-                    <button class="w-full text-left">
+                    <button class="faq-button w-full text-left" aria-expanded="false">
                         <div class="flex justify-between items-center">
                             <h3 class="text-lg font-semibold text-gray-900">How quickly can I access my machine's manual?</h3>
-                            <span class="text-blue-600"><i class="fas fa-chevron-down"></i></span>
+                            <span class="text-blue-600 transform transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
                         </div>
                     </button>
-                    <div class="mt-2">
+                    <div class="faq-answer mt-2">
                         <p class="text-gray-600">Instant access! Once you enter your machine's make and model, you'll have immediate access to your manual and related repair guides.</p>
                     </div>
                 </div>
                 <div class="border-b border-gray-200 pb-4 hover:bg-gray-50 transition duration-300 rounded-lg p-4">
-                    <button class="w-full text-left">
+                    <button class="faq-button w-full text-left" aria-expanded="false">
                         <div class="flex justify-between items-center">
                             <h3 class="text-lg font-semibold text-gray-900">What if I can't find my specific model?</h3>
-                            <span class="text-blue-600"><i class="fas fa-chevron-down"></i></span>
+                            <span class="text-blue-600 transform transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
                         </div>
                     </button>
-                    <div class="mt-2">
+                    <div class="faq-answer mt-2">
                         <p class="text-gray-600">Contact our support team, and we'll help locate your manual within 24 hours. We have access to rare and vintage machine documentation.</p>
                     </div>
                 </div>
                 <div class="border-b border-gray-200 pb-4 hover:bg-gray-50 transition duration-300 rounded-lg p-4">
-                    <button class="w-full text-left">
+                    <button class="faq-button w-full text-left" aria-expanded="false">
                         <div class="flex justify-between items-center">
                             <h3 class="text-lg font-semibold text-gray-900">Do I need technical experience to follow the guides?</h3>
-                            <span class="text-blue-600"><i class="fas fa-chevron-down"></i></span>
+                            <span class="text-blue-600 transform transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
                         </div>
                     </button>
-                    <div class="mt-2">
-                        <p class="text-gray-600">Not at all! Our guides are designed for beginners and include clear photos and videos for each step. No prior repair experience needed.</p>
-                    </div>
-                </div>
-                <div class="border-b border-gray-200 pb-4 hover:bg-gray-50 transition duration-300 rounded-lg p-4">
-                    <button class="w-full text-left">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-lg font-semibold text-gray-900">What types of repairs are covered?</h3>
-                            <span class="text-blue-600"><i class="fas fa-chevron-down"></i></span>
-                        </div>
-                    </button>
-                    <div class="mt-2">
-                        <p class="text-gray-600">We cover everything from basic maintenance to complex repairs, including tension adjustments, timing issues, electrical problems, and mechanical repairs.</p>
-                    </div>
-                </div>
-                <div class="border-b border-gray-200 pb-4 hover:bg-gray-50 transition duration-300 rounded-lg p-4">
-                    <button class="w-full text-left">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-lg font-semibold text-gray-900">Is there ongoing support available?</h3>
-                            <span class="text-blue-600"><i class="fas fa-chevron-down"></i></span>
-                        </div>
-                    </button>
-                    <div class="mt-2">
-                        <p class="text-gray-600">Yes! We offer email support and maintain an active community forum where you can get additional help from experts and other users.</p>
+                    <div class="faq-answer mt-2">
+                        <p class="text-gray-600">Not at all! Our guides are written for beginners with clear, step-by-step instructions and helpful images. We break down complex repairs into simple steps.</p>
                     </div>
                 </div>
             </div>
@@ -304,34 +285,37 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.querySelector('header nav .mobile-menu-button');
-            const mobileMenu = document.querySelector('header nav .mobile-menu');
-            
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    const icon = mobileMenuButton.querySelector('i');
-                    if (icon) {
-                        icon.classList.toggle('fa-bars');
-                        icon.classList.toggle('fa-times');
-                    }
-                });
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
-                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                        const icon = mobileMenuButton.querySelector('i');
-                        if (icon) {
-                            icon.classList.remove('fa-times');
-                            icon.classList.add('fa-bars');
-                        }
-                    });
-                });
-            }
+        // FAQ toggles
+        document.querySelectorAll('.faq-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Toggle the active class
+                answer.classList.toggle('active');
+                
+                // Update aria-expanded
+                const isExpanded = answer.classList.contains('active');
+                button.setAttribute('aria-expanded', isExpanded);
+                
+                // Rotate the icon
+                if (isExpanded) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0)';
+                }
+            });
         });
     </script>
-</body>
 </body>
 </html>
