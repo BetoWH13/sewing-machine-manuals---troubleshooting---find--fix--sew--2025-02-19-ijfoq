@@ -52,8 +52,16 @@
             <div class="max-w-4xl mx-auto">
                 <main class="container mx-auto px-4 py-8 max-w-4xl">
                     <h1 class="text-3xl font-bold mb-8">Blog</h1>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="flex justify-between mb-8">
+                        <input type="search" id="searchInput" placeholder="Search blog posts" class="py-2 pl-10 text-sm text-gray-700">
+                        <select id="sortSelect" class="py-2 pl-10 text-sm text-gray-700">
+                            <option value="newest">Newest</option>
+                            <option value="oldest">Oldest</option>
+                            <option value="az">A-Z</option>
+                            <option value="za">Z-A</option>
+                        </select>
+                    </div>
+                    <div id="blogPosts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Brother Article -->
                         <div class="bg-white rounded-lg shadow-md p-6">
                             <span class="inline-block bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">New</span>
@@ -109,6 +117,48 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
+
+        // Blog search and sort functionality
+        const searchInput = document.getElementById('searchInput');
+        const sortSelect = document.getElementById('sortSelect');
+        const blogPosts = document.getElementById('blogPosts');
+        const posts = Array.from(blogPosts.children);
+
+        function filterPosts() {
+            const searchTerm = searchInput.value.toLowerCase();
+            posts.forEach(post => {
+                const title = post.querySelector('h3').textContent.toLowerCase();
+                const description = post.querySelector('p').textContent.toLowerCase();
+                const isVisible = title.includes(searchTerm) || description.includes(searchTerm);
+                post.style.display = isVisible ? '' : 'none';
+            });
+        }
+
+        function sortPosts() {
+            const sortValue = sortSelect.value;
+            const sortedPosts = posts.sort((a, b) => {
+                const titleA = a.querySelector('h3').textContent;
+                const titleB = b.querySelector('h3').textContent;
+                
+                switch(sortValue) {
+                    case 'newest':
+                        return -1; // Keep current order
+                    case 'oldest':
+                        return 1; // Reverse current order
+                    case 'az':
+                        return titleA.localeCompare(titleB);
+                    case 'za':
+                        return titleB.localeCompare(titleA);
+                    default:
+                        return 0;
+                }
+            });
+
+            sortedPosts.forEach(post => blogPosts.appendChild(post));
+        }
+
+        searchInput.addEventListener('input', filterPosts);
+        sortSelect.addEventListener('change', sortPosts);
     </script>
 
     <footer class="bg-gray-900 text-white py-16">
